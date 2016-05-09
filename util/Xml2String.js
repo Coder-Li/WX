@@ -1,6 +1,7 @@
 var xml = require('node-xml');
 
-exports.parse = new xml.SaxParser(function (cb) {
+
+var parse = new xml.SaxParser(function (cb) {
 
   var ToUserName = "";
   var FromUserName = "";
@@ -28,19 +29,24 @@ exports.parse = new xml.SaxParser(function (cb) {
     } else if (tempName == "Content") {
       Content = cdata;
     }
-    // console.log(tempName + ":" + cdata);
+    console.log(tempName + ":" + cdata);
   });
   cb.onEndElementNS(function (elem, prefix, uri) {
     tempName = "";
   });
   cb.onEndDocument(function () {
-    return {
+    console.log('结束了！');
+     var content = {
       'ToUserName' : ToUserName,
       'FromUserName' : FromUserName,
       'CreateTime' : CreateTime,
       'MsgType' : MsgType,
       'Content' : Content,
       'tempName' : tempName
-    }
+    };
+    // console.log(content);
+    return content;
   });
 });
+
+exports.parse = parse;
