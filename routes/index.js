@@ -11,6 +11,6 @@ module.exports = function (app) {
   app.get('/', UtilCheck.checkUrl);
 
   //Message
-  app.post('/', Message.autoSendMessage);
+  app.post('/', Message.getMessage, Message.sendMessage);
 }
 // module.exports = router;
