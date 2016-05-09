@@ -11,6 +11,11 @@ module.exports = function (app) {
   app.get('/', UtilCheck.checkUrl);
 
   //Message
-  app.post('/', Message.getMessage, Message.sendMessage);
+  app.post('/',
+    Message.getMessage,
+    Message.dealText,
+    Message.dealOnStarEvent,
+    Message.sendMessage
+     );
 }
 // module.exports = router;
