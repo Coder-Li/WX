@@ -1,0 +1,1028 @@
+{
+  _readableState: ReadableState{
+    objectMode: false,
+    highWaterMark: 16384,
+    buffer: [],
+    length: 0,
+    pipes: null,
+    pipesCount: 0,
+    flowing: null,
+    ended: false,
+    endEmitted: false,
+    reading: false,
+    sync: true,
+    needReadable: false,
+    emittedReadable: false,
+    readableListening: false,
+    defaultEncoding: 'utf8',
+    ranOut: false,
+    awaitDrain: 0,
+    readingMore: false,
+    decoder: null,
+    encoding: null
+  },
+  readable: true,
+  domain: null,
+  _events: {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  socket: Socket{
+    _connecting: false,
+    _hadError: false,
+    _handle: TCP{
+      _externalStream: {},
+      fd: -1,
+      reading: true,
+      owner: [
+        Circular
+      ],
+      onread: [
+        Function: onread
+      ],
+      onconnection: null,
+      writeQueueSize: 0
+    },
+    _parent: null,
+    _host: null,
+    _readableState: ReadableState{
+      objectMode: false,
+      highWaterMark: 16384,
+      buffer: [],
+      length: 0,
+      pipes: null,
+      pipesCount: 0,
+      flowing: true,
+      ended: false,
+      endEmitted: false,
+      reading: true,
+      sync: false,
+      needReadable: true,
+      emittedReadable: false,
+      readableListening: false,
+      defaultEncoding: 'utf8',
+      ranOut: false,
+      awaitDrain: 0,
+      readingMore: false,
+      decoder: null,
+      encoding: null,
+      resumeScheduled: false
+    },
+    readable: true,
+    domain: null,
+    _events: {
+      end: [
+        Object
+      ],
+      finish: [
+        Function: onSocketFinish
+      ],
+      _socketEnd: [
+        Function: onSocketEnd
+      ],
+      drain: [
+        Object
+      ],
+      timeout: [
+        Function
+      ],
+      error: [
+        Object
+      ],
+      close: [
+        Object
+      ],
+      data: [
+        Function: socketOnData
+      ],
+      resume: [
+        Function: onSocketResume
+      ],
+      pause: [
+        Function: onSocketPause
+      ]
+    },
+    _eventsCount: 10,
+    _maxListeners: undefined,
+    _writableState: WritableState{
+      objectMode: false,
+      highWaterMark: 16384,
+      needDrain: false,
+      ending: false,
+      ended: false,
+      finished: false,
+      decodeStrings: false,
+      defaultEncoding: 'utf8',
+      length: 0,
+      writing: false,
+      corked: 0,
+      sync: true,
+      bufferProcessing: false,
+      onwrite: [
+        Function
+      ],
+      writecb: null,
+      writelen: 0,
+      bufferedRequest: null,
+      lastBufferedRequest: null,
+      pendingcb: 0,
+      prefinished: false,
+      errorEmitted: false
+    },
+    writable: true,
+    allowHalfOpen: true,
+    destroyed: false,
+    bytesRead: 0,
+    _bytesDispatched: 0,
+    _sockname: null,
+    _pendingData: null,
+    _pendingEncoding: '',
+    server: Server{
+      domain: null,
+      _events: [
+        Object
+      ],
+      _eventsCount: 3,
+      _maxListeners: undefined,
+      _connections: 1,
+      _handle: [
+        Object
+      ],
+      _usingSlaves: false,
+      _slaves: [],
+      _unref: false,
+      allowHalfOpen: true,
+      pauseOnConnect: false,
+      httpAllowHalfOpen: false,
+      timeout: 120000,
+      _pendingResponseData: 0,
+      _connectionKey: '6: : : : 3000'
+    },
+    _idleTimeout: 120000,
+    _idleNext: {
+      _idleNext: [
+        Circular
+      ],
+      _idlePrev: [
+        Circular
+      ]
+    },
+    _idlePrev: {
+      _idleNext: [
+        Circular
+      ],
+      _idlePrev: [
+        Circular
+      ]
+    },
+    _idleStart: 23226,
+    parser: HTTPParser{
+      '0': [
+        Function: parserOnHeaders
+      ],
+      '1': [
+        Function: parserOnHeadersComplete
+      ],
+      '2': [
+        Function: parserOnBody
+      ],
+      '3': [
+        Function: parserOnMessageComplete
+      ],
+      '4': [
+        Function: onParserExecute
+      ],
+      _headers: [],
+      _url: '',
+      _consumed: true,
+      socket: [
+        Circular
+      ],
+      incoming: [
+        Circular
+      ],
+      maxHeaderPairs: 2000,
+      onIncoming: [
+        Function: parserOnIncoming
+      ]
+    },
+    on: [
+      Function: socketOnWrap
+    ],
+    _paused: false,
+    read: [
+      Function
+    ],
+    _consuming: true,
+    _httpMessage: ServerResponse{
+      domain: null,
+      _events: [
+        Object
+      ],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      output: [],
+      outputEncodings: [],
+      outputCallbacks: [],
+      outputSize: 0,
+      writable: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      useChunkedEncodingByDefault: false,
+      sendDate: true,
+      _removedHeader: {},
+      _contentLength: null,
+      _hasBody: true,
+      _trailer: '',
+      finished: false,
+      _headerSent: false,
+      socket: [
+        Circular
+      ],
+      connection: [
+        Circular
+      ],
+      _header: null,
+      _headers: [
+        Object
+      ],
+      _headerNames: [
+        Object
+      ],
+      _onPendingData: [
+        Function: updateOutgoingData
+      ],
+      req: [
+        Circular
+      ],
+      locals: {},
+      _startAt: undefined,
+      _startTime: undefined,
+      writeHead: [
+        Function: writeHead
+      ],
+      __onFinished: [
+        Object
+      ]
+    },
+    _peername: {
+      address: ': : ffff: 127.0.0.1',
+      family: 'IPv6',
+      port: 65052
+    }
+  },
+  connection: Socket{
+    _connecting: false,
+    _hadError: false,
+    _handle: TCP{
+      _externalStream: {},
+      fd: -1,
+      reading: true,
+      owner: [
+        Circular
+      ],
+      onread: [
+        Function: onread
+      ],
+      onconnection: null,
+      writeQueueSize: 0
+    },
+    _parent: null,
+    _host: null,
+    _readableState: ReadableState{
+      objectMode: false,
+      highWaterMark: 16384,
+      buffer: [],
+      length: 0,
+      pipes: null,
+      pipesCount: 0,
+      flowing: true,
+      ended: false,
+      endEmitted: false,
+      reading: true,
+      sync: false,
+      needReadable: true,
+      emittedReadable: false,
+      readableListening: false,
+      defaultEncoding: 'utf8',
+      ranOut: false,
+      awaitDrain: 0,
+      readingMore: false,
+      decoder: null,
+      encoding: null,
+      resumeScheduled: false
+    },
+    readable: true,
+    domain: null,
+    _events: {
+      end: [
+        Object
+      ],
+      finish: [
+        Function: onSocketFinish
+      ],
+      _socketEnd: [
+        Function: onSocketEnd
+      ],
+      drain: [
+        Object
+      ],
+      timeout: [
+        Function
+      ],
+      error: [
+        Object
+      ],
+      close: [
+        Object
+      ],
+      data: [
+        Function: socketOnData
+      ],
+      resume: [
+        Function: onSocketResume
+      ],
+      pause: [
+        Function: onSocketPause
+      ]
+    },
+    _eventsCount: 10,
+    _maxListeners: undefined,
+    _writableState: WritableState{
+      objectMode: false,
+      highWaterMark: 16384,
+      needDrain: false,
+      ending: false,
+      ended: false,
+      finished: false,
+      decodeStrings: false,
+      defaultEncoding: 'utf8',
+      length: 0,
+      writing: false,
+      corked: 0,
+      sync: true,
+      bufferProcessing: false,
+      onwrite: [
+        Function
+      ],
+      writecb: null,
+      writelen: 0,
+      bufferedRequest: null,
+      lastBufferedRequest: null,
+      pendingcb: 0,
+      prefinished: false,
+      errorEmitted: false
+    },
+    writable: true,
+    allowHalfOpen: true,
+    destroyed: false,
+    bytesRead: 0,
+    _bytesDispatched: 0,
+    _sockname: null,
+    _pendingData: null,
+    _pendingEncoding: '',
+    server: Server{
+      domain: null,
+      _events: [
+        Object
+      ],
+      _eventsCount: 3,
+      _maxListeners: undefined,
+      _connections: 1,
+      _handle: [
+        Object
+      ],
+      _usingSlaves: false,
+      _slaves: [],
+      _unref: false,
+      allowHalfOpen: true,
+      pauseOnConnect: false,
+      httpAllowHalfOpen: false,
+      timeout: 120000,
+      _pendingResponseData: 0,
+      _connectionKey: '6: : : : 3000'
+    },
+    _idleTimeout: 120000,
+    _idleNext: {
+      _idleNext: [
+        Circular
+      ],
+      _idlePrev: [
+        Circular
+      ]
+    },
+    _idlePrev: {
+      _idleNext: [
+        Circular
+      ],
+      _idlePrev: [
+        Circular
+      ]
+    },
+    _idleStart: 23226,
+    parser: HTTPParser{
+      '0': [
+        Function: parserOnHeaders
+      ],
+      '1': [
+        Function: parserOnHeadersComplete
+      ],
+      '2': [
+        Function: parserOnBody
+      ],
+      '3': [
+        Function: parserOnMessageComplete
+      ],
+      '4': [
+        Function: onParserExecute
+      ],
+      _headers: [],
+      _url: '',
+      _consumed: true,
+      socket: [
+        Circular
+      ],
+      incoming: [
+        Circular
+      ],
+      maxHeaderPairs: 2000,
+      onIncoming: [
+        Function: parserOnIncoming
+      ]
+    },
+    on: [
+      Function: socketOnWrap
+    ],
+    _paused: false,
+    read: [
+      Function
+    ],
+    _consuming: true,
+    _httpMessage: ServerResponse{
+      domain: null,
+      _events: [
+        Object
+      ],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      output: [],
+      outputEncodings: [],
+      outputCallbacks: [],
+      outputSize: 0,
+      writable: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      useChunkedEncodingByDefault: false,
+      sendDate: true,
+      _removedHeader: {},
+      _contentLength: null,
+      _hasBody: true,
+      _trailer: '',
+      finished: false,
+      _headerSent: false,
+      socket: [
+        Circular
+      ],
+      connection: [
+        Circular
+      ],
+      _header: null,
+      _headers: [
+        Object
+      ],
+      _headerNames: [
+        Object
+      ],
+      _onPendingData: [
+        Function: updateOutgoingData
+      ],
+      req: [
+        Circular
+      ],
+      locals: {},
+      _startAt: undefined,
+      _startTime: undefined,
+      writeHead: [
+        Function: writeHead
+      ],
+      __onFinished: [
+        Object
+      ]
+    },
+    _peername: {
+      address: ': : ffff: 127.0.0.1',
+      family: 'IPv6',
+      port: 65052
+    }
+  },
+  httpVersionMajor: 1,
+  httpVersionMinor: 0,
+  httpVersion: '1.0',
+  complete: false,
+  headers: {
+    'user-agent': 'Mozilla/4.0',
+    accept: '*/*',
+    host: 'mytest.tunnel.qydev.com',
+    pragma: 'no-cache',
+    'content-length': '280',
+    'content-type': 'text/xml'
+  },
+  rawHeaders: [
+    'User-Agent',
+    'Mozilla/4.0',
+    'Accept',
+    '*/*',
+    'Host',
+    'mytest.tunnel.qydev.com',
+    'Pragma',
+    'no-cache',
+    'Content-Length',
+    '280',
+    'Content-Type',
+    'text/xml'
+  ],
+  trailers: {},
+  rawTrailers: [],
+  upgrade: false,
+  url: '/?signature=19e09b1d09ad80eabcd9cb3c777b5c65bdec2efb&timestamp=1462761818&nonce=2058303545',
+  method: 'POST',
+  statusCode: null,
+  statusMessage: null,
+  client: Socket{
+    _connecting: false,
+    _hadError: false,
+    _handle: TCP{
+      _externalStream: {},
+      fd: -1,
+      reading: true,
+      owner: [
+        Circular
+      ],
+      onread: [
+        Function: onread
+      ],
+      onconnection: null,
+      writeQueueSize: 0
+    },
+    _parent: null,
+    _host: null,
+    _readableState: ReadableState{
+      objectMode: false,
+      highWaterMark: 16384,
+      buffer: [],
+      length: 0,
+      pipes: null,
+      pipesCount: 0,
+      flowing: true,
+      ended: false,
+      endEmitted: false,
+      reading: true,
+      sync: false,
+      needReadable: true,
+      emittedReadable: false,
+      readableListening: false,
+      defaultEncoding: 'utf8',
+      ranOut: false,
+      awaitDrain: 0,
+      readingMore: false,
+      decoder: null,
+      encoding: null,
+      resumeScheduled: false
+    },
+    readable: true,
+    domain: null,
+    _events: {
+      end: [
+        Object
+      ],
+      finish: [
+        Function: onSocketFinish
+      ],
+      _socketEnd: [
+        Function: onSocketEnd
+      ],
+      drain: [
+        Object
+      ],
+      timeout: [
+        Function
+      ],
+      error: [
+        Object
+      ],
+      close: [
+        Object
+      ],
+      data: [
+        Function: socketOnData
+      ],
+      resume: [
+        Function: onSocketResume
+      ],
+      pause: [
+        Function: onSocketPause
+      ]
+    },
+    _eventsCount: 10,
+    _maxListeners: undefined,
+    _writableState: WritableState{
+      objectMode: false,
+      highWaterMark: 16384,
+      needDrain: false,
+      ending: false,
+      ended: false,
+      finished: false,
+      decodeStrings: false,
+      defaultEncoding: 'utf8',
+      length: 0,
+      writing: false,
+      corked: 0,
+      sync: true,
+      bufferProcessing: false,
+      onwrite: [
+        Function
+      ],
+      writecb: null,
+      writelen: 0,
+      bufferedRequest: null,
+      lastBufferedRequest: null,
+      pendingcb: 0,
+      prefinished: false,
+      errorEmitted: false
+    },
+    writable: true,
+    allowHalfOpen: true,
+    destroyed: false,
+    bytesRead: 0,
+    _bytesDispatched: 0,
+    _sockname: null,
+    _pendingData: null,
+    _pendingEncoding: '',
+    server: Server{
+      domain: null,
+      _events: [
+        Object
+      ],
+      _eventsCount: 3,
+      _maxListeners: undefined,
+      _connections: 1,
+      _handle: [
+        Object
+      ],
+      _usingSlaves: false,
+      _slaves: [],
+      _unref: false,
+      allowHalfOpen: true,
+      pauseOnConnect: false,
+      httpAllowHalfOpen: false,
+      timeout: 120000,
+      _pendingResponseData: 0,
+      _connectionKey: '6: : : : 3000'
+    },
+    _idleTimeout: 120000,
+    _idleNext: {
+      _idleNext: [
+        Circular
+      ],
+      _idlePrev: [
+        Circular
+      ]
+    },
+    _idlePrev: {
+      _idleNext: [
+        Circular
+      ],
+      _idlePrev: [
+        Circular
+      ]
+    },
+    _idleStart: 23226,
+    parser: HTTPParser{
+      '0': [
+        Function: parserOnHeaders
+      ],
+      '1': [
+        Function: parserOnHeadersComplete
+      ],
+      '2': [
+        Function: parserOnBody
+      ],
+      '3': [
+        Function: parserOnMessageComplete
+      ],
+      '4': [
+        Function: onParserExecute
+      ],
+      _headers: [],
+      _url: '',
+      _consumed: true,
+      socket: [
+        Circular
+      ],
+      incoming: [
+        Circular
+      ],
+      maxHeaderPairs: 2000,
+      onIncoming: [
+        Function: parserOnIncoming
+      ]
+    },
+    on: [
+      Function: socketOnWrap
+    ],
+    _paused: false,
+    read: [
+      Function
+    ],
+    _consuming: true,
+    _httpMessage: ServerResponse{
+      domain: null,
+      _events: [
+        Object
+      ],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      output: [],
+      outputEncodings: [],
+      outputCallbacks: [],
+      outputSize: 0,
+      writable: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: false,
+      useChunkedEncodingByDefault: false,
+      sendDate: true,
+      _removedHeader: {},
+      _contentLength: null,
+      _hasBody: true,
+      _trailer: '',
+      finished: false,
+      _headerSent: false,
+      socket: [
+        Circular
+      ],
+      connection: [
+        Circular
+      ],
+      _header: null,
+      _headers: [
+        Object
+      ],
+      _headerNames: [
+        Object
+      ],
+      _onPendingData: [
+        Function: updateOutgoingData
+      ],
+      req: [
+        Circular
+      ],
+      locals: {},
+      _startAt: undefined,
+      _startTime: undefined,
+      writeHead: [
+        Function: writeHead
+      ],
+      __onFinished: [
+        Object
+      ]
+    },
+    _peername: {
+      address: ': : ffff: 127.0.0.1',
+      family: 'IPv6',
+      port: 65052
+    }
+  },
+  _consuming: false,
+  _dumped: false,
+  next: [
+    Function: next
+  ],
+  baseUrl: '',
+  originalUrl: '/?signature=19e09b1d09ad80eabcd9cb3c777b5c65bdec2efb&timestamp=1462761818&nonce=2058303545',
+  _parsedUrl: Url{
+    protocol: null,
+    slashes: null,
+    auth: null,
+    host: null,
+    port: null,
+    hostname: null,
+    hash: null,
+    search: '?signature=19e09b1d09ad80eabcd9cb3c777b5c65bdec2efb&timestamp=1462761818&nonce=2058303545',
+    query: 'signature=19e09b1d09ad80eabcd9cb3c777b5c65bdec2efb&timestamp=1462761818&nonce=2058303545',
+    pathname: '/',
+    path: '/?signature=19e09b1d09ad80eabcd9cb3c777b5c65bdec2efb&timestamp=1462761818&nonce=2058303545',
+    href: '/?signature=19e09b1d09ad80eabcd9cb3c777b5c65bdec2efb&timestamp=1462761818&nonce=2058303545',
+    _raw: '/?signature=19e09b1d09ad80eabcd9cb3c777b5c65bdec2efb&timestamp=1462761818&nonce=2058303545'
+  },
+  params: {},
+  query: {
+    signature: '19e09b1d09ad80eabcd9cb3c777b5c65bdec2efb',
+    timestamp: '1462761818',
+    nonce: '2058303545'
+  },
+  res: ServerResponse{
+    domain: null,
+    _events: {
+      finish: [
+        Object
+      ],
+      end: [
+        Function: onevent
+      ]
+    },
+    _eventsCount: 2,
+    _maxListeners: undefined,
+    output: [],
+    outputEncodings: [],
+    outputCallbacks: [],
+    outputSize: 0,
+    writable: true,
+    _last: false,
+    chunkedEncoding: false,
+    shouldKeepAlive: false,
+    useChunkedEncodingByDefault: false,
+    sendDate: true,
+    _removedHeader: {},
+    _contentLength: null,
+    _hasBody: true,
+    _trailer: '',
+    finished: false,
+    _headerSent: false,
+    socket: Socket{
+      _connecting: false,
+      _hadError: false,
+      _handle: [
+        Object
+      ],
+      _parent: null,
+      _host: null,
+      _readableState: [
+        Object
+      ],
+      readable: true,
+      domain: null,
+      _events: [
+        Object
+      ],
+      _eventsCount: 10,
+      _maxListeners: undefined,
+      _writableState: [
+        Object
+      ],
+      writable: true,
+      allowHalfOpen: true,
+      destroyed: false,
+      bytesRead: 0,
+      _bytesDispatched: 0,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: [
+        Object
+      ],
+      _idleTimeout: 120000,
+      _idleNext: [
+        Object
+      ],
+      _idlePrev: [
+        Object
+      ],
+      _idleStart: 23226,
+      parser: [
+        Object
+      ],
+      on: [
+        Function: socketOnWrap
+      ],
+      _paused: false,
+      read: [
+        Function
+      ],
+      _consuming: true,
+      _httpMessage: [
+        Circular
+      ],
+      _peername: [
+        Object
+      ]
+    },
+    connection: Socket{
+      _connecting: false,
+      _hadError: false,
+      _handle: [
+        Object
+      ],
+      _parent: null,
+      _host: null,
+      _readableState: [
+        Object
+      ],
+      readable: true,
+      domain: null,
+      _events: [
+        Object
+      ],
+      _eventsCount: 10,
+      _maxListeners: undefined,
+      _writableState: [
+        Object
+      ],
+      writable: true,
+      allowHalfOpen: true,
+      destroyed: false,
+      bytesRead: 0,
+      _bytesDispatched: 0,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: [
+        Object
+      ],
+      _idleTimeout: 120000,
+      _idleNext: [
+        Object
+      ],
+      _idlePrev: [
+        Object
+      ],
+      _idleStart: 23226,
+      parser: [
+        Object
+      ],
+      on: [
+        Function: socketOnWrap
+      ],
+      _paused: false,
+      read: [
+        Function
+      ],
+      _consuming: true,
+      _httpMessage: [
+        Circular
+      ],
+      _peername: [
+        Object
+      ]
+    },
+    _header: null,
+    _headers: {
+      'x-powered-by': 'Express'
+    },
+    _headerNames: {
+      'x-powered-by': 'X-Powered-By'
+    },
+    _onPendingData: [
+      Function: updateOutgoingData
+    ],
+    req: [
+      Circular
+    ],
+    locals: {},
+    _startAt: undefined,
+    _startTime: undefined,
+    writeHead: [
+      Function: writeHead
+    ],
+    __onFinished: {
+      [
+        Function: listener
+      ]queue: [
+        Object
+      ]
+    }
+  },
+  _startAt: [
+    1814512,
+    158337286
+  ],
+  _startTime: MonMay0 9 2016 10: 43: 47GMT+0800(中国标准时间),
+  _remoteAddress: ': : ffff: 127.0.0.1',
+  body: {},
+  secret: undefined,
+  cookies: {},
+  signedCookies: {},
+  route: Route{
+    path: '/',
+    stack: [
+      [
+        Object
+      ]
+    ],
+    methods: {
+      post: true
+    }
+  }
+}
+
+
+
+xmlStr
+<xml><ToUserName><![CDATA[gh_752fcb25d771]]></ToUserName>
+<FromUserName><![CDATA[oYUYuwCheBqxJP5D3UrOfU8gJUgU]]></FromUserName>
+<CreateTime>1462761818</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[ 你好]]></Content>
+<MsgId>6282514170555967915</MsgId>
+</xml>
