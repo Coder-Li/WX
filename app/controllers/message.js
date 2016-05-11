@@ -1,5 +1,6 @@
 // var Xml2String = require('../../util/Xml2String');
 var xml = require('node-xml');
+var Goods = require('../models/goods');
 
 exports.getMessage = function (req, res, next) {
   var post_data = '';
@@ -86,11 +87,11 @@ exports.getMessage = function (req, res, next) {
 }
 
 exports.sendMessage = function (req, res, next) {
-  var cont = req.session.cont;
-  var msg = req.session.msg ;
-  CreateTime = parseInt(new Date().getTime() / 1000);
-
-  if (cont.MsgType === "text" || cont.MsgType === 'event') {
+  if (req.session.cont.MsgType === "text" || req.session.cont.MsgType === 'event') {
+    var cont = req.session.cont;
+    var msg = req.session.msg ;
+    CreateTime = parseInt(new Date().getTime() / 1000);
+    
     var sendMess = '<xml>' +
       '<ToUserName><![CDATA[' + cont.FromUserName + ']]></ToUserName>' +
       '<FromUserName><![CDATA[' + cont.ToUserName + ']]></FromUserName>' +
@@ -102,7 +103,7 @@ exports.sendMessage = function (req, res, next) {
     res.end();
   }
   else {
-    res.end(' ');
+    next();
   }
 }
 
@@ -112,7 +113,7 @@ exports.dealText = function(req, res, next){
     var cont = req.session.cont;
     var msg = '';
     
-    if(cont.Content === '你好'){
+    if(RegExp("你好").test(cont.Content)){
       msg = '你好呀，我是Rose机器人！';
     }
     else if(RegExp("最美丽").test(cont.Content)){
@@ -121,25 +122,24 @@ exports.dealText = function(req, res, next){
     else if(RegExp("最傻").test(cont.Content)){
       msg = '当然是李京阳啊';
     }
+    else if(RegExp("测试").test(cont.Content)){
+      msg = '请联系858582381@qq.com提交测试体验';
+    }
+    else if(RegExp("图片").test(cont.Content)){
+      req.session.cont.MsgType = 'news';
+    }
     else {
       msg = '你说的是"' + cont.Content + '"吗？';
     }
-    
-    req.session.msg = msg;
+    if(msg){
+      req.session.msg = msg;
+    }
     next();
   }else{
     next();
   }
 }
 
-exports.dealLocation = function(req, res, next){
-  if(req.session.cont.MsgType === 'location'){
-    
-    next();
-  }else{
-    next();
-  }
-}
 
 exports.dealImage = function(req, res, next){
   if(req.session.cont.MsgType === 'image'){
@@ -158,4 +158,66 @@ exports.dealOnStarEvent = function(req, res, next){
   }else{
     next();
   }
+}
+
+exports.dealNews = function(req, res, next){
+  if(req.session.cont.MsgType === 'news'){
+    var news= [];
+    Goods.findOne({}, function(err, goods){
+      if(err){
+        console.log(err);
+      }
+      else{
+        var title = goods.name;
+        var description = goods.summary;
+        var picurl = 'http://mytest.tunnel.qydev.com/images/1.png';
+        var url = 'http://mytest.tunnel.qydev.com/goods/' + goods._id;
+        news.push({ 'title':title,
+                    'description':description,
+                    'picurl':picurl,
+                    'url':url});
+        // console.log(news);
+        req.session.news = news;
+      }
+      next();
+    })
+  }else{
+    next();
+  }
+}
+exports.SendNewMessage = function(req, res, next){
+  if(req.session.cont.MsgType === 'news'){
+      var cont = req.session.cont;
+      var news = req.session.news;
+      CreateTime = parseInt(new Date().getTime() / 1000);
+      var ArticleCount = news.length;
+      
+      var itemStr = '';
+      var sendMess = '<xml>' +
+           '<ToUserName><![CDATA[' + cont.FromUserName + ']]></ToUserName>' +
+           '<FromUserName><![CDATA[' + cont.ToUserName + ']]></FromUserName>' +
+           '<CreateTime>' + CreateTime + '</CreateTime>' +
+           '<MsgType><![CDATA[news]]></MsgType>' +
+           '<ArticleCount>' + ArticleCount + '</ArticleCount>' +
+           '<Articles>' ;
+           news.forEach(function(item) {
+             itemStr += '<item>' +
+                        '<Title><![CDATA[' + item.title + ']]></Title> ' +
+                        '<Description><![CDATA[' + item.description + ']]></Description>' +
+                        '<PicUrl><![CDATA[' + item.picurl + ']]></PicUrl>' +
+                        '<Url><![CDATA[' + item.url + ']]></Url>' +
+                        '</item>';
+           }, this);
+           sendMess += itemStr + '</Articles>' + '</xml>';
+           
+      // console.log(sendMess);
+      res.send(sendMess);
+      res.end();
+  }else{
+    next();
+  }
+}
+
+exports.endMiddleware = function(req, res, next){
+  res.end(' ');
 }

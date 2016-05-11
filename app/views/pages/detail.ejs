@@ -1,0 +1,19 @@
+<% include ../includes/header %>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-7">
+              <img src="/images/1.png">
+          </div>
+          <div class="col-md-5">
+              <dl class="dl-horizontal">
+                  <dt>商品名称</dt><dd><%= goods.name %></dd>
+                  <dt>价格</dt>   <dd><%= goods.pirce %></dd>
+                  <dt>区域</dt>   <dd><%= goods.area %></dd>
+                  <dt>新旧程度</dt><dd><%= goods.degree %></dd>
+                  <dt>详细介绍</dt><dd><%= goods.summary %></dd>
+                  <dt>数量</dt>   <dd><%= goods.amount %></dd>
+              </dl>
+          </div>
+      </div>
+  </div>
+<% include ../includes/foot %>

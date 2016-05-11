@@ -5,15 +5,19 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var port = 3000;
+var mongoose = require('mongoose');
+var port = process.env.PORT || 3000;
+
+
+//数据库URL
+var dbUrl = 'mongodb://127.0.0.1/wx';
+mongoose.connect(dbUrl);
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './app/views/pages'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -51,6 +55,7 @@ if (app.get('env') === 'development') {
       message: err.message,
       error: err
     });
+    mongoose.set('debug', true);
   });
 }
 
@@ -65,6 +70,6 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(port, function(){
-  console.log('the server open on 3000');
+  console.log('the server open on:' + port);
 })
 // module.exports = app;

@@ -1,0 +1,17 @@
+    // goods
+    {
+        name: String, //名称
+        pirce: String, //价格
+        area: String, //区域
+        degree: String, //新旧程度
+        summary: String, //详情
+        pic: String, //图片url
+        amount: { //数量
+            type: Number,
+            default: 1
+        }, //数量
+        // category: {    //类别
+        //     type: ObjectId,
+        //     ref: 'category'
+        // },
+    }
