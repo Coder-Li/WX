@@ -9,32 +9,52 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="pirce" class="col-sm-3 control-label">价格</label>
+                    <label for="inputCategory" class="col-sm-3 control-label">商品分类</label>
                     <div class="col-sm-7">
-                        <input type="text" id="pirce" name="goods[pirce]" class="form-control">
+                        <input type="text" id="inputCategory" class="form-control" name="goods[categoryName]">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="area" class="col-sm-3 control-label">区域</label>
-                    <div class="col-sm-7">
-                        <input type="text" id="area" name="goods[area]" class="form-control">
+                    <label for="" class="col-sm-3 control-label">分类选择</label>
+                    <% for(cat in categories){%>
+                        <label for="" class="radio-inline">
+                            <% if(goods._id) {%>
+                                <input type="radio" name="goods[category] value="cat._id" checked = <%= cat._id == goods.category%>>
+                                 <span><%= cat.name %></span>
+                            <% }else{ %>
+                                <input type="radio" name="goods[category]" value="cat._id"> 
+                                <span>1<%= cat.name %></span>
+                            <% } %>
+                        </label>
+                    <% } %>
+                </div>
+                <div class="form-group ">
+                    <label for="pirce " class="col-sm-3 control-label ">价格</label>
+                    <div class="col-sm-7 ">
+                        <input type="text " id="pirce " name="goods[pirce] " class="form-control " >
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="degree" class="col-sm-3 control-label">新旧程度</label>
-                    <div class="col-sm-7">
-                        <input type="text" id="degree" name="goods[degree]" class="form-control">
+                <div class="form-group ">
+                    <label for="area " class="col-sm-3 control-label ">区域</label>
+                    <div class="col-sm-7 ">
+                        <input type="text " id="area " name="goods[area] " class="form-control " >
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="summary" class="col-sm-3 control-label">详细介绍</label>
-                    <div class="col-sm-7">
-                        <input type="text" id="summary" name="goods[summary]" class="form-control">
+                <div class="form-group ">
+                    <label for="degree " class="col-sm-3 control-label ">新旧程度</label>
+                    <div class="col-sm-7 ">
+                        <input type="text " id="degree " name="goods[degree] " class="form-control " >
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-6">
-                        <button class="btn btn-default" type="submit">录入</button>
+                <div class="form-group ">
+                    <label for="summary " class="col-sm-3 control-label ">详细介绍</label>
+                    <div class="col-sm-7 ">
+                        <input type="text " id="summary " name="goods[summary] " class="form-control " >
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-sm-offset-3 col-sm-6 ">
+                        <button class="btn btn-default " type="submit ">录入</button>
                     </div>
                 </div>
             </form>

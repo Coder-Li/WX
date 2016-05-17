@@ -14,10 +14,14 @@ var GoodsSchema = new Schema({
         type: Number,
         default: 1
     },   //数量
-    // category: {    //类别
-    //     type: ObjectId,
-    //     ref: 'category'
-    // },
+    category: {    //类别
+        type: ObjectId,
+        ref: 'category'
+    },
+    pv: {           //访问量
+        type: Number,
+        default: 0
+    },
     meta: {
         createAt: {
             type: Date,

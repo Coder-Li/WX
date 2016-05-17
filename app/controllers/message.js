@@ -150,6 +150,7 @@ exports.dealImage = function(req, res, next){
   }
 }
 
+//当有人关注时，返回的消息
 exports.dealOnStarEvent = function(req, res, next){
   if(req.session.cont.MsgType === 'event' || req.session.cont.Event === 'subscribe'){
     var msg = '欢迎关注！本公众号旨在为华航学子提供一个二手商品交易的平台。请按一下步骤操作:\n   1.看商品   \n   2.卖商品    \n\n\n\n输入“？”查看帮助';
@@ -177,8 +178,8 @@ exports.dealNews = function(req, res, next){
                     'picurl':picurl,
                     'url':url});
         // console.log(news);
-        req.session.news = news;
       }
+      req.session.news = news;
       next();
     })
   }else{

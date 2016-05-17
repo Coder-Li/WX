@@ -31,5 +31,6 @@ module.exports = function (app) {
   app.get('/admin/goods/new', Goods.insert);
   app.post('/admin/goods/new', Goods.save);
   app.get('/goods/:id', Goods.detail);
+  
 }
 // module.exports = router;
