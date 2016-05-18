@@ -9,7 +9,10 @@ var GoodsSchema = new Schema({
     area: String,     //区域
     degree: String,   //新旧程度
     summary: String,  //详情
-    // pic: String,      //图片url
+    pic: {
+        type: ObjectId,
+        ref: 'picurl'
+    },      //图片url
     amount: {         //数量
         type: Number,
         default: 1
@@ -31,29 +34,29 @@ var GoodsSchema = new Schema({
             type: Date,
             default: Date.now()
         }
-    }  
+    }
 })
 //存数据前都会调用
-GoodsSchema.pre('save', function(next){
-    if(this.isNew){
+GoodsSchema.pre('save', function (next) {
+    if (this.isNew) {
         this.meta.createAt = this.meta.updateAt = Date.now();
     }
-    else{
+    else {
         this.meta.updateAt = Date.now();
     }
     next();
 });
 
 GoodsSchema.statics = {
-    fetch: function(cb){
+    fetch: function (cb) {
         return this
             .find({})
             .sort('meta.updateAt')
             .exec(cb)
     },
-    findById: function(id, cb){
+    findById: function (id, cb) {
         return this
-            .findOne({_id: id})
+            .findOne({ _id: id })
             .exec(cb)
     }
 }
