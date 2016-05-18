@@ -1,39 +1,29 @@
 // var _ = require('underscore');
 var Goods = require('../models/goods');
-var Pic = require('../models/pic');
 var fs = require('fs');
+var path = require('path');
 
 exports.savePic = function (req, res, next) {
     var picData = req.files.uploadPic;
     var filePath = picData.path;
     var originalFilename = picData.originalFilename;
-    var id = req.body.goods._id;
 
-    if (id) {
-        if (originalFilename) {
-            fs.readFile(filePath, function (err, data) {
-                var timespamp = Date.now();
-                var type = picData.type.split('/')[1];
-                var pic = timespamp + '.' + type;
-                var newPath = path.join(__dirname, '../../', '/public/pic/' + pic);
+    if (originalFilename) {
+        fs.readFile(filePath, function (err, data) {
+            if (err) console.log(err);
 
-                fs.writeFile(newPath, date, function (err) {
-                    var pic = new Pic({
-                        url: newPath,
-                        goods: id
-                    });
-                    //先保存pic表，再保存goods表
-                    pic.save(function (err, pic) {
-                        if (err) { console.log(err); }
-                        Goods.findById(id, function (err, goods) {
-                            goods.pic.push(pic._id);
+            var timespamp = Date.now();
+            var type = picData.type.split('/')[1];
+            var pic = timespamp + '.' + type;
+            var newPath = path.join(__dirname, '../..', '/public/pic/' + pic);
 
-                            goods.save();
-                        })
-                    })
-                })
+            fs.writeFile(newPath, data, function (err) {
+                if (err) { console.log(err) }
+                req.picUrl = newPath;
+                next();
             })
-        }
+        });
+    } else {
+        next();
     }
-    next();
 }

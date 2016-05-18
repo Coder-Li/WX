@@ -1,14 +1,22 @@
 var _ = require('underscore');
 var Goods = require('../models/goods');
 var Category = require('../models/category');
+var Pic = require('../models/pic');
 
 //存储和修改物品信息的逻辑
 exports.save = function (req, res, next) {
     var id = req.body.goods._id;
     var goodsObj = req.body.goods;
+    var picUrl = req.picUrl;
     var _goods;
-
+    
+    console.log('id');
+    console.log(id);
+    console.log('picUrl')
+    console.log(picUrl)
+    
     if (id) {
+        console.log('这是有ID的区域，一般不会进来的！')
         Goods.findById(id, function (err, goods) {
             if (err) {
                 console.log(err);
@@ -20,11 +28,18 @@ exports.save = function (req, res, next) {
                     console.log(err);
                 }
 
-                res.redirect('/goods/' + goods._id);
+                goods.pic = savepic2db(picUrl, goods) || ''
+                goods.save(function (err, goods) {
+                    if (err) { console.log(err) }
+                    else {
+                        res.redirect('/goods/' + goods._id);
+                    }
+                })
             });
         });
     }
     else {
+        console.log('没有ID应该来这！')
         _goods = new Goods(goodsObj);
 
         var categoryId = _goods.category;
@@ -34,6 +49,12 @@ exports.save = function (req, res, next) {
             if (err) {
                 console.log(err);
             }
+            
+            console.log('我想看看goods:' + goods);
+            goods.pic = savepic2db(picUrl, goods) || ''
+            goods.save(function (err, goods) {
+                if (err) { console.log(err) }
+            })
 
             if (categoryId) {
                 Category.findById(categoryId, function (err, category) {
@@ -86,4 +107,24 @@ exports.insert = function (req, res, next) {
             goods: {}
         })
     })
+}
+
+//save pic fun
+function savepic2db(picUrl, goods) {
+    if (picUrl) {
+        var pic = new Pic({
+            goods: goods._id,
+            url: picUrl
+        });
+
+        pic.save(function (err, pic) {
+            if (err) { console.log(err) }
+            else {
+                return pic._id;
+            }
+        })
+    } else {
+        console.log('没有图片！')
+        return undefined;
+    }
 }

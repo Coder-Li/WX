@@ -11,7 +11,7 @@ var GoodsSchema = new Schema({
     summary: String,  //详情
     pic: {
         type: ObjectId,
-        ref: 'picurl'
+        ref: 'pic'
     },      //图片url
     amount: {         //数量
         type: Number,
