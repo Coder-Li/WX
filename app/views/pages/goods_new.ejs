@@ -16,14 +16,14 @@
                 </div>
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">分类选择</label>
-                    <% for(cat in categories){%>
+                    <% for(var i=0 ; i < categories.length ;i++){ %>
                         <label for="" class="radio-inline">
                             <% if(goods._id) {%>
                                 <input type="radio" name="goods[category] value="cat._id" checked = <%= cat._id == goods.category%>>
-                                 <span><%= cat.name %></span>
+                                 <span><%= categories[i].name %></span>
                             <% }else{ %>
                                 <input type="radio" name="goods[category]" value="cat._id"> 
-                                <span>1<%= cat.name %></span>
+                                <span><%= categories[i].name %></span>
                             <% } %>
                         </label>
                     <% } %>

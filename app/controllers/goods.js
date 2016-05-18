@@ -2,6 +2,7 @@ var _ = require('underscore');
 var Goods = require('../models/goods');
 var Category = require('../models/category');
 
+//存储和修改物品信息的逻辑
 exports.save = function (req, res, next) {
     var id = req.body.goods._id;
     var goodsObj = req.body.goods;
