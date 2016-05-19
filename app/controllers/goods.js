@@ -9,12 +9,11 @@ exports.save = function (req, res, next) {
     var goodsObj = req.body.goods;
     var picUrl = req.picUrl;
     var _goods;
-    
-    console.log('id');
-    console.log(id);
-    console.log('picUrl')
-    console.log(picUrl)
-    
+
+    if (picUrl) {
+        goodsObj.pic = savepic2db(picUrl, goods);
+    }
+
     if (id) {
         console.log('这是有ID的区域，一般不会进来的！')
         Goods.findById(id, function (err, goods) {
@@ -28,13 +27,10 @@ exports.save = function (req, res, next) {
                     console.log(err);
                 }
 
-                goods.pic = savepic2db(picUrl, goods) || ''
-                goods.save(function (err, goods) {
-                    if (err) { console.log(err) }
-                    else {
-                        res.redirect('/goods/' + goods._id);
-                    }
-                })
+                else {
+                    res.redirect('/goods/' + goods._id);
+                }
+
             });
         });
     }
@@ -49,13 +45,12 @@ exports.save = function (req, res, next) {
             if (err) {
                 console.log(err);
             }
-            
-            console.log('我想看看goods:' + goods);
-            goods.pic = savepic2db(picUrl, goods) || ''
-            goods.save(function (err, goods) {
-                if (err) { console.log(err) }
-            })
 
+            console.log('我想看看goods:' + goods);
+
+
+            console.log('刚才goods很棒，那么现在呢？' + goods)
+            if (err) { console.log(err) }
             if (categoryId) {
                 Category.findById(categoryId, function (err, category) {
                     category.goods.push(goods._id);
@@ -78,6 +73,8 @@ exports.save = function (req, res, next) {
                     })
                 })
             }
+
+
         });
     }
 };

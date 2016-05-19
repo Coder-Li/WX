@@ -3,6 +3,7 @@
         <div class="row">
             <form method="POST" action="/admin/goods/new" class="form-horizontal" enctype="multipart/form-data">
                 <% if(goods._id){ %>
+                    <p>id!</p>
                     <input type="hidden" name="goods[_id]" value="goods._id">
                 <% } %>
                 <div class="form-group">
