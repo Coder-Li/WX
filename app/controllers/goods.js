@@ -11,7 +11,10 @@ exports.save = function (req, res, next) {
     var _goods;
 
     if (picUrl) {
-        goodsObj.pic = savepic2db(picUrl, goods);
+        // goodsObj.pic = savepic2db(picUrl, goods);
+        // console.log(picUrl);
+        goodsObj.pic = picUrl.split('\public')[1];
+        // console.log(goodsObj.pic);
     }
 
     if (id) {
@@ -40,17 +43,15 @@ exports.save = function (req, res, next) {
 
         var categoryId = _goods.category;
         var categoryName = goodsObj.categoryName;
-
+        
+        console.log(_goods);
+        
         _goods.save(function (err, goods) {
             if (err) {
                 console.log(err);
             }
+            console.log(goods)
 
-            console.log('我想看看goods:' + goods);
-
-
-            console.log('刚才goods很棒，那么现在呢？' + goods)
-            if (err) { console.log(err) }
             if (categoryId) {
                 Category.findById(categoryId, function (err, category) {
                     category.goods.push(goods._id);

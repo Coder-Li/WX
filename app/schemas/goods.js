@@ -10,8 +10,8 @@ var GoodsSchema = new Schema({
     degree: String,   //新旧程度
     summary: String,  //详情
     pic: {
-        type: ObjectId,
-        ref: 'pic'
+        type: String,
+        // ref: 'pic'
     },      //图片url
     amount: {         //数量
         type: Number,

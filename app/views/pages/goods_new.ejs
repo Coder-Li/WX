@@ -23,10 +23,10 @@
                     <% for(var i=0 ; i < categories.length ;i++){ %>
                         <label for="" class="radio-inline">
                             <% if(goods._id) {%>
-                                <input type="radio" name="goods[category] value="cat._id" checked = <%= cat._id == goods.category%>>
+                                <input type="radio" name="goods[category]" value=<%= categories[i]._id %> checked = <%= cat._id == goods.category%>>
                                  <span><%= categories[i].name %></span>
                             <% }else{ %>
-                                <input type="radio" name="goods[category]" value="cat._id"> 
+                                <input type="radio" name="goods[category]" value=<%= categories[i]._id %>> 
                                 <span><%= categories[i].name %></span>
                             <% } %>
                         </label>

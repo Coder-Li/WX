@@ -171,13 +171,13 @@ exports.dealNews = function(req, res, next){
       else{
         var title = goods.name;
         var description = goods.summary;
-        var picurl = 'http://mytest.tunnel.qydev.com/images/1.png';
-        var url = 'http://mytest.tunnel.qydev.com/goods/' + goods._id;
+        var picurl = 'http://lijingyang.tunnel.qydev.com' + goods.pic ;
+        var url = 'http://lijingyang.tunnel.qydev.com/goods/' + goods._id;
         news.push({ 'title':title,
                     'description':description,
                     'picurl':picurl,
                     'url':url});
-        // console.log(news);
+        console.log(news);
       }
       req.session.news = news;
       next();
@@ -186,8 +186,9 @@ exports.dealNews = function(req, res, next){
     next();
   }
 }
+
 exports.SendNewMessage = function(req, res, next){
-  if(req.session.cont.MsgType === 'news'){
+  if(req.session.cont.MsgType === 'news' && req.session.news){
       var cont = req.session.cont;
       var news = req.session.news;
       CreateTime = parseInt(new Date().getTime() / 1000);
